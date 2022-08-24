@@ -106,7 +106,7 @@ sudo gunzip ./rootfs.ext4.gz
 		- 在Assistant界面右键hw_link项目部分
 		- 单击Settings进入编译设置界面
 		- 在hw_link目录下的Hardware中选中$YOUR_CONTAINER_NAME选项
-		- 在v++ compiler options中添加`--clock.defaultFreqHz 3000000000`，其中300000000代表300MHz
+		- 在v++ compiler options中添加`--clock.defaultFreqHz 300000000`，其中300000000代表300MHz
 	+ 设置kernel端口映射
 		- 在下图中的Memory选项中可以配置kernel的端口映射信息
 ![图15 设置link编译时频率约束](./img/link_setting.png)
