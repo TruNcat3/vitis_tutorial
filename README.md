@@ -1,5 +1,5 @@
 # 利用vitis快速部署应用到ZCU104
-本教程主要介绍利用vitis工具流将加速应用部署到ZCU104上，如图1所示是vitis工具流的概览。
+本教程主要介绍利用vitis工具流将加速应用部署到ZCU104上，如图所示是vitis工具流的概览。
 
 ![图1 vitis工作流程](./img/vitis_workflow.image)
 ## 环境准备
@@ -74,6 +74,7 @@ sudo gunzip ./rootfs.ext4.gz
 
 ### kernel端配置
 1. 添加kernel代码，将编写好的kernel代码复制或导入到如图的src文件夹内
+
 ![图9 添加kernel代码](./img/kernel_code.jpg)
 
 2. 打开上图中的test_kernels.prj配置kernel信息
