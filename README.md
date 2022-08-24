@@ -115,6 +115,7 @@ sudo gunzip ./rootfs.ext4.gz
 	+ 关联vivado软件，工程编译以后可用
 		- 在Assistant界面右键hw_link项目下的container部分
 		- 单击Open Vivado Project进入vivado工程快速调试
+		
 ![图16 打开vivado](./img/link_vivado.jpg)
 
 ## 应用工程编译
@@ -122,6 +123,7 @@ sudo gunzip ./rootfs.ext4.gz
 + Emulation-SW：软件仿真，类似于hls的纯软件仿真，主要是用于验证算法的正确性
 + Emulation-HW：硬件仿真，仿真真实的硬件连接，用于检查硬件链接问题以及内存访问问题
 + Hardware：硬件实现，编译可用于FPGA硬件的工程文件
+
 ![图17 编译工程](./img/build.jpg)
 
 ## 硬件部署
@@ -145,4 +147,5 @@ cd /mnt/sd-mmcblkOp1/
 source ./init.sh
 ```
 3. 执行host程序
+
 ![图21 run](./img/host_run_zcu104.png)
