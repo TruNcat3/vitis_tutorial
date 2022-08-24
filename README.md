@@ -94,6 +94,7 @@ sudo gunzip ./rootfs.ext4.gz
 ![图12 打开vitis_hls](./img/kernel_vitis_hls.png)
 ### host端配置
 1. 添加host代码，将编写好的host代码复制或导入到如图的src文件夹内
+
 ![图13 添加host代码](./img/host_code.jpg)
 
 ### HW-link配置
