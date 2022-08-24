@@ -1,10 +1,10 @@
-#利用vitis快速部署应用到ZCU104
+# 利用vitis快速部署应用到ZCU104
 本教程主要介绍利用vitis工具流将加速应用部署到ZCU104上，如图1所示是vitis工具流的概览。
 
 ![图1 vitis工作流程](./img/vitis_workflow.image)
-##环境准备
+## 环境准备
 
-###安装所需依赖
+### 安装所需依赖
 ```
 sudo apt-get install ocl-icd-libopencl1 opencl-headers ocl-icd-opencl-dev
 sudo add-apt-repository ppa:xorg-edgers/ppa 
@@ -26,7 +26,7 @@ curl -1sLf \
 sudo apt-get update
 sudo apt-get install balena-etcher-electron
 ```
-###下载安装vitis相关工具
+### 下载安装vitis相关工具
 1. [安装vitis软件](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vitis.html)，这里下载的版本号最好要与之后下载相关内容保持一致。
 	例如：这里下载了vitis2020.2，后续的软件和镜像最好也下载2020.2或者之前版本以保证兼容性。
 2. [安装XRT软件](https://www.xilinx.com/products/design-tools/vitis/xrt.html#gettingstarted)，XRT是Xilinx FPGA的运行时库。
@@ -48,9 +48,9 @@ sudo gunzip ./rootfs.ext4.gz
 ./sdk.sh -y -dir ./ -p
 ```
 
-##应用工程创建
+## 应用工程创建
 
-###建立工程
+### 建立工程
 1. 在终端直接运行`vitis`，设置工作目录
 ![图3 workspace设置](./img/workspace.jpg)
 
@@ -72,7 +72,7 @@ sudo gunzip ./rootfs.ext4.gz
 6. 创建空白应用工程，选择Empty Application后点击Finish
 ![图8 创建空白应用工程](./img/empty_app.jpg)
 
-###kernel端配置
+### kernel端配置
 1. 添加kernel代码，将编写好的kernel代码复制或导入到如图的src文件夹内
 ![图9 添加kernel代码](./img/kernel_code.jpg)
 
@@ -91,11 +91,11 @@ sudo gunzip ./rootfs.ext4.gz
 		- 打开之前的test_kernels.prj页面
 		- 单击下图选中的图标快速打开hls软件调试kernel代码
 ![图12 打开vitis_hls](./img/kernel_vitis_hls.png)
-###host端配置
+### host端配置
 1. 添加host代码，将编写好的host代码复制或导入到如图的src文件夹内
 ![图13 添加host代码](./img/host_code.jpg)
 
-###HW-link配置
+### HW-link配置
 1. 打开图中的test_system_hw_link.prj配置link信息
 2. 点击Add Binary Container创建一个容器
 3. 点击ADD Hardware Fuction添加硬件单元的Top Fuction
@@ -115,27 +115,27 @@ sudo gunzip ./rootfs.ext4.gz
 		- 单击Open Vivado Project进入vivado工程快速调试
 ![图16 打开vivado](./img/link_vivado.jpg)
 
-##应用工程编译
+## 应用工程编译
 在Explorer界面选中System后，便可在菜单中点击build按钮，其中编译分为三种模式
 + Emulation-SW：软件仿真，类似于hls的纯软件仿真，主要是用于验证算法的正确性
 + Emulation-HW：硬件仿真，仿真真实的硬件连接，用于检查硬件链接问题以及内存访问问题
 + Hardware：硬件实现，编译可用于FPGA硬件的工程文件
 ![图17 编译工程](./img/build.jpg)
 
-##硬件部署
-###SD卡烧录
+## 硬件部署
+### SD卡烧录
 1. 将sd卡插到电脑
 2. 打开etcher软件
 3. 在软件中的image选项里选择，`/PATH-to-YOUR-WORK/test_system/Hardware/package`下找到sd_card.img文件
 4. 在device选项里选择sd卡
 5. 单击Flash进行烧录
 ![图18 烧录](./img/image2sd.png)
-###ZCU104板卡串口连接
+### ZCU104板卡串口连接
 1. 将ZCU104板卡与主机连接，并插上之前已经烧录好的sd卡
 ![图19 zcu104](./img/zcu104.jpg)
 2. 命令行运行`sudo putty`，打开putty后并如图配置，串口号随实际情况变化，本案例里是`ttyUSB1`
 ![图20 putty](./img/putty.png)
-##运行结果
+## 运行结果
 1. 板卡上电运行
 2. 启动后运行如下命令
 ```
